@@ -1,17 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { useGetMemes } from './hooks/useGetMeme';
 
 function App() {
-  const [count, setCount] = useState(0);
-  console.log(chrome);
+  const { data, loading, error } = useGetMemes();
 
-  console.log(count);
+  console.log(data, loading, error);
 
   return (
     <>
       <h1 className='text-3xl font-bold underline'>Hello world!</h1>
       <h1 className='text-3xl font-bold underline'>Hello world!</h1>
-      nofuckyouo
     </>
   );
 }
