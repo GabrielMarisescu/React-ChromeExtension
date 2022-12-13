@@ -4,18 +4,42 @@ import React from 'react';
 import ShowcaseMemeImage from './components/ShowcaseMemeImage';
 import MemeGeneratorHeader from './components/MemeGeneratorHeader';
 import ManageMemesButtons from './components/ManageMemesButtons';
+import { getMemesResponse } from './types/apiCallsTypes';
 
 function App() {
+  const [meme, setMeme] = React.useState<getMemesResponse>();
+  const [memeIndex, setMemeIndex] = React.useState<number>(0);
   const { data, loading, error } = useGetMemes();
+  const memesLength = meme?.data.memes.length;
 
-  console.log(data);
+  React.useEffect(() => {
+    if (data) {
+      setMeme(data);
+    }
+  }, [data]);
+
+  const goToPreviousMeme = (): void => {
+    setMemeIndex((prevData) =>
+      prevData - 1 < 0 ? memesLength! - 1 : prevData - 1
+    );
+  };
+  const goToNextMeme = (): void => {
+    setMemeIndex((prevData) =>
+      prevData + 1 > memesLength! - 1 ? 0 : prevData + 1
+    );
+  };
+
+  //loading state here
   return (
     <>
       <MemeGeneratorHeader />
-      <ManageMemesButtons />
+      <ManageMemesButtons
+        goToPreviousMeme={goToPreviousMeme}
+        goToNextMeme={goToNextMeme}
+      />
       <ShowcaseMemeImage
-        imageLink={data?.data.memes[1].url}
-        altValue={data?.data.memes[1].id}
+        imageLink={meme?.data.memes[memeIndex].url}
+        altValue={meme?.data.memes[memeIndex].id}
       />
     </>
   );
