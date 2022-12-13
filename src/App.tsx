@@ -3,6 +3,7 @@ import { useGetMemes } from './hooks/useGetMeme';
 import React from 'react';
 import ShowcaseMemeImage from './components/ShowcaseMemeImage';
 import MemeGeneratorHeader from './components/MemeGeneratorHeader';
+import ManageMemesButtons from './components/ManageMemesButtons';
 
 function App() {
   const { data, loading, error } = useGetMemes();
@@ -10,6 +11,7 @@ function App() {
   return (
     <>
       <MemeGeneratorHeader />
+      <ManageMemesButtons />
       <ShowcaseMemeImage imageLink={data?.data.memes[0].url} />
     </>
   );
