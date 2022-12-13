@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface Meme {
   id: string;
   name: string;
@@ -14,4 +16,8 @@ interface Data {
 export interface getMemesResponse {
   success: boolean;
   data: Data;
+}
+
+export interface ShowCaseMemeImageProps {
+  imageLink?: string;
 }

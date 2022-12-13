@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react';
-import './App.css';
 import { useGetMemes } from './hooks/useGetMeme';
+// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React from 'react';
+import ShowcaseMemeImage from './components/ShowcaseMemeImage';
+import MemeGeneratorHeader from './components/MemeGeneratorHeader';
 
 function App() {
   const { data, loading, error } = useGetMemes();
 
-  console.log(data, loading, error);
-
   return (
     <>
-      <h1 className='text-3xl font-bold underline'>Hello world!</h1>
-      <h1 className='text-3xl font-bold underline'>Hello world!</h1>
+      <MemeGeneratorHeader />
+      <ShowcaseMemeImage imageLink={data?.data.memes[0].url} />
     </>
   );
 }
