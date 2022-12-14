@@ -1,4 +1,5 @@
 import React from 'react';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 function withMemeData(
   WrappedComponent: React.FC,
@@ -10,13 +11,7 @@ function withMemeData(
 
     //TODO Make spinner for loading
     return (
-      <>
-        {isDataLoaded ? (
-          <WrappedComponent {...props} />
-        ) : (
-          <div>Something went wrong</div>
-        )}
-      </>
+      <>{isDataLoaded ? <WrappedComponent {...props} /> : <LoadingSpinner />}</>
     );
   };
 }
