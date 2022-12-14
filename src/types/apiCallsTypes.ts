@@ -22,3 +22,9 @@ export interface ShowCaseMemeImageProps {
   imageLink?: string;
   altValue?: string;
 }
+
+export interface withMemeDataProps {
+  WrappedComponent: React.FC;
+  loading: boolean;
+  error: any;
+}

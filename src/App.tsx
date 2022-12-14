@@ -1,15 +1,22 @@
-import { useGetMemes } from './hooks/useGetMeme';
+import { useGetMemes } from './utils/hooks/useGetMeme';
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React from 'react';
 import ShowcaseMemeImage from './components/ShowcaseMemeImage';
 import MemeGeneratorHeader from './components/MemeGeneratorHeader';
 import ManageMemesButtons from './components/ManageMemesButtons';
 import { getMemesResponse } from './types/apiCallsTypes';
+import withMemeData from './utils/HOCs/withMemeData';
+
+function AppWithData() {
+  const { loading, error } = useGetMemes();
+  const Component = withMemeData(App, loading, error);
+  return <Component />;
+}
 
 function App() {
   const [meme, setMeme] = React.useState<getMemesResponse>();
   const [memeIndex, setMemeIndex] = React.useState<number>(0);
-  const { data, loading, error } = useGetMemes();
+  const { data } = useGetMemes();
   const memesLength = meme?.data.memes.length;
 
   React.useEffect(() => {
@@ -28,8 +35,6 @@ function App() {
       prevData + 1 > memesLength! - 1 ? 0 : prevData + 1
     );
   };
-
-  //loading state here
   return (
     <>
       <MemeGeneratorHeader />
@@ -45,4 +50,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppWithData;

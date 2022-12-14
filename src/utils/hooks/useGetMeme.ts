@@ -1,5 +1,5 @@
 import React from 'react';
-import { getMemesResponse } from '../types/apiCallsTypes';
+import { getMemesResponse } from '../../types/apiCallsTypes';
 
 // TODO - Documentation needs to be added
 export const useGetMemes = () => {
