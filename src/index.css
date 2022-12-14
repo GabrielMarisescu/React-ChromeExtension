@@ -8,3 +8,6 @@ body {
   height: 600px;
   background-color: black;
 }
+* {
+  overflow: hidden;
+}

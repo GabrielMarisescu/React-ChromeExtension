@@ -13,6 +13,4 @@ function ShowcaseMemeImage({ imageLink, altValue }: ShowCaseMemeImageProps) {
   );
 }
 
-//TODO Alt prop should be dynamic
-
 export default ShowcaseMemeImage;

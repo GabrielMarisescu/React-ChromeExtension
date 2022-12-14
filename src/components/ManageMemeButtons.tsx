@@ -1,26 +1,24 @@
 import React from 'react';
 
-//Generate will be disabled if there are no values in the text boxes
+//refactor
 
-// function withManageLogic(Component: React.FC) {
-//   return (props: any) => {
-//     //logic here
-//     return <Component {...props} />;
-//   };
-// }
-
-interface ManageMemesButtonsProps {
+interface ManageMemeButtonsProps {
   goToNextMeme: () => void;
   goToPreviousMeme: () => void;
+  disabledGenerate: boolean;
 }
 
-function ManageMemesButtons({
+//disabledGenerate is a boolean value that will be used to disable the generate button
+
+//TODO make disabled work
+
+function ManageMemeButtons({
   goToNextMeme,
   goToPreviousMeme,
-}: ManageMemesButtonsProps) {
+}: ManageMemeButtonsProps) {
   return (
     <section className=' flex flex-col justify-center items-center'>
-      <button className=' w-1/2 mt-5 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded'>
+      <button className=' w-1/2 mt-5 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded disabled:opacity-50'>
         Generate
       </button>
 
@@ -42,6 +40,4 @@ function ManageMemesButtons({
   );
 }
 
-// withManageLogic;
-
-export default ManageMemesButtons;
+export default ManageMemeButtons;

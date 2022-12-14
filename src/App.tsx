@@ -2,10 +2,11 @@ import { useGetMemes } from './utils/hooks/useGetMeme';
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React from 'react';
 import ShowcaseMemeImage from './components/ShowcaseMemeImage';
-import MemeGeneratorHeader from './components/MemeGeneratorHeader';
-import ManageMemesButtons from './components/ManageMemesButtons';
+import MemeGeneratorHeader from './components/DumbComponents/MemeGeneratorHeader';
+import ManageMemeButtons from './components/ManageMemeButtons';
 import { getMemesResponse } from './types/apiCallsTypes';
 import withMemeData from './utils/HOCs/withMemeData';
+import DisplayMemeInputs from './components/DisplayMemeInputs';
 
 function AppWithData() {
   const { loading, error } = useGetMemes();
@@ -35,16 +36,22 @@ function App() {
       prevData + 1 > memesLength! - 1 ? 0 : prevData + 1
     );
   };
+
+  console.log(data);
   return (
     <>
       <MemeGeneratorHeader />
-      <ManageMemesButtons
+      <ManageMemeButtons
         goToPreviousMeme={goToPreviousMeme}
         goToNextMeme={goToNextMeme}
+        disabledGenerate={false}
       />
       <ShowcaseMemeImage
         imageLink={meme?.data.memes[memeIndex].url}
         altValue={meme?.data.memes[memeIndex].id}
+      />
+      <DisplayMemeInputs
+        numberOfBoxesToCaption={meme?.data.memes[memeIndex].box_count}
       />
     </>
   );
