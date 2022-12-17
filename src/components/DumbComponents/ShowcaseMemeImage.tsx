@@ -1,5 +1,4 @@
-import React from 'react';
-import { ShowCaseMemeImageProps } from '../types/apiCallsTypes';
+import { ShowCaseMemeImageProps } from '../../types/apiCallsTypes';
 
 function ShowcaseMemeImage({ imageLink, altValue }: ShowCaseMemeImageProps) {
   return (

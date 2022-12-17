@@ -1,7 +1,7 @@
 import { useGetMemes } from './utils/hooks/useGetMeme';
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React from 'react';
-import ShowcaseMemeImage from './components/ShowcaseMemeImage';
+import ShowcaseMemeImage from './components/DumbComponents/ShowcaseMemeImage';
 import MemeGeneratorHeader from './components/DumbComponents/MemeGeneratorHeader';
 import ManageMemeButtons from './components/ManageMemeButtons';
 import { getMemesResponse } from './types/apiCallsTypes';
