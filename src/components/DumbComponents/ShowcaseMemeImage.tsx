@@ -6,7 +6,7 @@ function ShowcaseMemeImage({ imageLink, altValue }: ShowCaseMemeImageProps) {
       src={imageLink}
       alt={altValue}
       className={
-        ' flex justify-center h-72 w-72 ml-auto mr-auto mt-5 object-contain'
+        ' flex justify-center h-52 w-52 ml-auto mr-auto mt-5 object-contain'
       }
     />
   );

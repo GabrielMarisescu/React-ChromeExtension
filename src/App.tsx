@@ -14,7 +14,8 @@ function AppWithData() {
 
 function App({ data }: AppProps) {
   const [memeIndex, setMemeIndex] = React.useState<number>(0);
-  const memesLength = data.data.memes.length;
+  const memeData = data.data;
+  const memesLength = memeData.memes.length;
 
   //TODO Refactor this code to use a reducer
   const goToPreviousMeme = (): void => {
@@ -37,11 +38,11 @@ function App({ data }: AppProps) {
         disabledGenerate={false}
       />
       <ShowcaseMemeImage
-        imageLink={data.data.memes[memeIndex].url}
-        altValue={data.data.memes[memeIndex].id}
+        imageLink={memeData.memes[memeIndex].url}
+        altValue={memeData.memes[memeIndex].id}
       />
       <DisplayMemeInputs
-        numberOfBoxesToCaption={data.data.memes[memeIndex].box_count}
+        numberOfBoxesToCaption={memeData.memes[memeIndex].box_count}
       />
     </>
   );

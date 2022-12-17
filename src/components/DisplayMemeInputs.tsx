@@ -15,11 +15,15 @@ function DisplayMemeInputs({
     .fill(0)
     .map((_, i) => i * i);
 
+  //logic to display the inputs
+
   return (
     <>
-      {arrayOfBoxes.map((_, i) => (
-        <InputText key={i} />
-      ))}
+      <form className='flex flex-col'>
+        {arrayOfBoxes.map((_, i) => (
+          <InputText key={i} />
+        ))}
+      </form>
     </>
   );
 }

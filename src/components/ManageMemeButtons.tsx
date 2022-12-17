@@ -18,20 +18,20 @@ function ManageMemeButtons({
 }: ManageMemeButtonsProps) {
   return (
     <section className=' flex flex-col justify-center items-center'>
-      <button className=' w-1/2 mt-5 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded disabled:opacity-50'>
+      <button className=' w-1/2 mt-5 bg-transparent hover:bg-blue-500  font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded disabled:opacity-50'>
         Generate
       </button>
 
       <section className=' w-4/5 flex justify-between'>
         <button
           onClick={goToPreviousMeme}
-          className=' mr-2 w-52 mt-5 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded'
+          className=' mr-2 w-52 mt-5 bg-transparent hover:bg-blue-500  font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded'
         >
           Previous
         </button>
         <button
           onClick={goToNextMeme}
-          className='  ml-2 mt-5 w-52 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded'
+          className='  ml-2 mt-5 w-52 bg-transparent hover:bg-blue-500  font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded'
         >
           Next
         </button>
