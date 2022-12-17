@@ -28,3 +28,7 @@ export interface withMemeDataProps {
   loading: boolean;
   error: any;
 }
+
+export interface AppProps {
+  data: getMemesResponse;
+}

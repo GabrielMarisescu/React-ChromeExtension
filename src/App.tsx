@@ -1,31 +1,22 @@
-import { useGetMemes } from './utils/hooks/useGetMeme';
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React from 'react';
 import ShowcaseMemeImage from './components/DumbComponents/ShowcaseMemeImage';
 import MemeGeneratorHeader from './components/DumbComponents/MemeGeneratorHeader';
 import ManageMemeButtons from './components/ManageMemeButtons';
-import { getMemesResponse } from './types/apiCallsTypes';
+import { AppProps, getMemesResponse } from './types/apiCallsTypes';
 import withMemeData from './utils/HOCs/withMemeData';
 import DisplayMemeInputs from './components/DisplayMemeInputs';
 
 function AppWithData() {
-  const { loading, error } = useGetMemes();
-  const Component = withMemeData(App, loading, error);
+  const Component = withMemeData(App);
   return <Component />;
 }
 
-function App() {
-  const [meme, setMeme] = React.useState<getMemesResponse>();
+function App({ data }: AppProps) {
   const [memeIndex, setMemeIndex] = React.useState<number>(0);
-  const { data } = useGetMemes();
-  const memesLength = meme?.data.memes.length;
+  const memesLength = data.data.memes.length;
 
-  React.useEffect(() => {
-    if (data) {
-      setMeme(data);
-    }
-  }, [data]);
-
+  //TODO Refactor this code to use a reducer
   const goToPreviousMeme = (): void => {
     setMemeIndex((prevData) =>
       prevData - 1 < 0 ? memesLength! - 1 : prevData - 1
@@ -37,7 +28,6 @@ function App() {
     );
   };
 
-  console.log(data);
   return (
     <>
       <MemeGeneratorHeader />
@@ -47,11 +37,11 @@ function App() {
         disabledGenerate={false}
       />
       <ShowcaseMemeImage
-        imageLink={meme?.data.memes[memeIndex].url}
-        altValue={meme?.data.memes[memeIndex].id}
+        imageLink={data.data.memes[memeIndex].url}
+        altValue={data.data.memes[memeIndex].id}
       />
       <DisplayMemeInputs
-        numberOfBoxesToCaption={meme?.data.memes[memeIndex].box_count}
+        numberOfBoxesToCaption={data.data.memes[memeIndex].box_count}
       />
     </>
   );
