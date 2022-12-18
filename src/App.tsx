@@ -3,9 +3,10 @@ import React from 'react';
 import ShowcaseMemeImage from './components/DumbComponents/ShowcaseMemeImage';
 import MemeGeneratorHeader from './components/DumbComponents/MemeGeneratorHeader';
 import ManageMemeButtons from './components/ManageMemeButtons';
-import { AppProps, getMemesResponse } from './types/apiCallsTypes';
+import { AppProps } from './types/apiCallsTypes';
 import withMemeData from './utils/HOCs/withMemeData';
 import DisplayMemeInputs from './components/DisplayMemeInputs';
+//import { usePostMeme } from './utils/hooks/usePostMeme';
 
 function AppWithData() {
   const Component = withMemeData(App);
@@ -16,6 +17,7 @@ function App({ data }: AppProps) {
   const [memeIndex, setMemeIndex] = React.useState<number>(0);
   const memeData = data.data;
   const memesLength = memeData.memes.length;
+  // const templateId = memeData.memes[memeIndex].id;
 
   //TODO Refactor this code to use a reducer
   const goToPreviousMeme = (): void => {
@@ -36,6 +38,7 @@ function App({ data }: AppProps) {
         goToPreviousMeme={goToPreviousMeme}
         goToNextMeme={goToNextMeme}
         disabledGenerate={false}
+        //generateImage={() => usePostMeme(templateId)}
       />
       <ShowcaseMemeImage
         imageLink={memeData.memes[memeIndex].url}

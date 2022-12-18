@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import LoadingSpinner from '../../components/DumbComponents/LoadingSpinner';
-import { getMemesResponse } from '../../types/apiCallsTypes';
 import { useGetMemes } from '../hooks/useGetMeme';
 
 function withMemeData(WrappedComponent: any): React.FC {

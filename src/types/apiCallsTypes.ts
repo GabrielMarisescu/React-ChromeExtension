@@ -13,7 +13,7 @@ interface Data {
   memes: Meme[];
 }
 
-export interface getMemesResponse {
+export interface GetMemesResponse {
   success: boolean;
   data: Data;
 }
@@ -23,12 +23,20 @@ export interface ShowCaseMemeImageProps {
   altValue?: string;
 }
 
-export interface withMemeDataProps {
+export interface WithMemeDataProps {
   WrappedComponent: React.FC;
   loading: boolean;
   error: any;
 }
 
 export interface AppProps {
-  data: getMemesResponse;
+  data: GetMemesResponse;
+}
+
+export interface CaptionedData {
+  success: boolean;
+  data: {
+    url: string;
+    page_url: string;
+  };
 }

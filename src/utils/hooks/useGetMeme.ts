@@ -1,9 +1,9 @@
 import React from 'react';
-import { getMemesResponse } from '../../types/apiCallsTypes';
+import { GetMemesResponse } from '../../types/apiCallsTypes';
 
 // TODO - Documentation needs to be added
 export const useGetMemes = () => {
-  const [data, setData] = React.useState<getMemesResponse>();
+  const [data, setData] = React.useState<GetMemesResponse>();
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
 
