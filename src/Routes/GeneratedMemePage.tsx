@@ -4,7 +4,7 @@ import React from 'react';
 //TODO : COMPONENT WILL TAKE IN A PROP THAT WILL BE THE IMAGE LINK
 
 function GeneratedMemePage() {
-  return <div>GeneratedMemePage</div>;
+  return <div className=' text-gray-50'>GeneratedMemePage </div>;
 }
 
 export default GeneratedMemePage;
