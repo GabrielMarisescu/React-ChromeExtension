@@ -19,7 +19,7 @@ export interface GetMemesResponse {
 }
 
 export interface ShowCaseMemeImageProps {
-  imageLink?: string;
+  imageLink: string;
   altValue?: string;
 }
 
