@@ -7,7 +7,6 @@ interface ManageMemeButtonsProps {
   goToNextMeme: () => void;
   goToPreviousMeme: () => void;
   disabledGenerate: boolean;
-  // generateImage: () => any;
 }
 
 //disabledGenerate is a boolean value that will be used to disable the generate button
@@ -18,20 +17,14 @@ function ManageMemeButtons({
   goToNextMeme,
   goToPreviousMeme,
   disabledGenerate,
-}: // generateImage,
-ManageMemeButtonsProps) {
+}: ManageMemeButtonsProps) {
   return (
     <section className=' flex flex-col justify-center items-center'>
       <Link
         to={'/generated'}
         className=' w-1/2 mt-5 bg-transparent hover:bg-blue-500  font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded disabled:opacity-50'
       >
-        <button
-          className=' w-full'
-          // onClick={generateImage}
-        >
-          Generate
-        </button>
+        <button className=' w-full'>Generate</button>
       </Link>
 
       <section className=' w-4/5 flex justify-between'>
