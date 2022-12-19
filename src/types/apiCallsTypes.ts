@@ -29,7 +29,7 @@ export interface WithMemeDataProps {
   error: any;
 }
 
-export interface AppProps {
+export interface MemePageProps {
   data: GetMemesResponse;
 }
 

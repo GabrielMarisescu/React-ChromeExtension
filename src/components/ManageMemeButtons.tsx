@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 //refactor
 
@@ -21,12 +22,17 @@ function ManageMemeButtons({
 ManageMemeButtonsProps) {
   return (
     <section className=' flex flex-col justify-center items-center'>
-      <button
-        // onClick={generateImage}
+      <Link
+        to={'/generated'}
         className=' w-1/2 mt-5 bg-transparent hover:bg-blue-500  font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded disabled:opacity-50'
       >
-        Generate
-      </button>
+        <button
+          className=' w-full'
+          // onClick={generateImage}
+        >
+          Generate
+        </button>
+      </Link>
 
       <section className=' w-4/5 flex justify-between'>
         <button

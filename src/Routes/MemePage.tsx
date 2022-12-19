@@ -1,19 +1,19 @@
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React from 'react';
-import ShowcaseMemeImage from './components/DumbComponents/ShowcaseMemeImage';
-import MemeGeneratorHeader from './components/DumbComponents/MemeGeneratorHeader';
-import ManageMemeButtons from './components/ManageMemeButtons';
-import { AppProps } from './types/apiCallsTypes';
-import withMemeData from './utils/HOCs/withMemeData';
-import DisplayMemeInputs from './components/DisplayMemeInputs';
+import ShowcaseMemeImage from '../components/DumbComponents/ShowcaseMemeImage';
+import MemeGeneratorHeader from '../components/DumbComponents/MemeGeneratorHeader';
+import ManageMemeButtons from '../components/ManageMemeButtons';
+import { MemePageProps } from '../types/apiCallsTypes';
+import withMemeData from '../utils/HOCs/withMemeData';
+import DisplayMemeInputs from '../components/DisplayMemeInputs';
 //import { usePostMeme } from './utils/hooks/usePostMeme';
 
-function AppWithData() {
-  const Component = withMemeData(App);
+function MemePageWithData() {
+  const Component = withMemeData(MemePage);
   return <Component />;
 }
 
-function App({ data }: AppProps) {
+function MemePage({ data }: MemePageProps) {
   const [memeIndex, setMemeIndex] = React.useState<number>(0);
   const memeData = data.data;
   const memesLength = memeData.memes.length;
@@ -51,4 +51,4 @@ function App({ data }: AppProps) {
   );
 }
 
-export default AppWithData;
+export default MemePageWithData;
