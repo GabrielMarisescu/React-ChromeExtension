@@ -1,23 +1,26 @@
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import React from 'react';
+import React, { useEffect } from 'react';
 import ShowcaseMemeImage from '../components/DumbComponents/ShowcaseMemeImage';
 import MemeGeneratorHeader from '../components/DumbComponents/MemeGeneratorHeader';
 import ManageMemeButtons from '../components/ManageMemeButtons';
 import { MemePageProps } from '../types/apiCallsTypes';
 import withMemeData from '../utils/HOCs/withMemeData';
 import DisplayMemeInputs from '../components/DisplayMemeInputs';
-//import { usePostMeme } from './utils/hooks/usePostMeme';
+import { useGetMemes } from '../utils/hooks/useGetMeme';
+import { useAtom } from 'jotai';
+import { template_ID } from '../MainStore';
 
 function MemePageWithData() {
-  const Component = withMemeData(MemePage);
+  const { data, loading, error } = useGetMemes();
+  const Component = withMemeData(MemePage, loading, error, data);
   return <Component />;
 }
 
 function MemePage({ data }: MemePageProps) {
   const [memeIndex, setMemeIndex] = React.useState<number>(0);
+  const [_, setTemplateId] = useAtom(template_ID);
   const memeData = data.data;
   const memesLength = memeData.memes.length;
-  // const templateId = memeData.memes[memeIndex].id;
 
   //TODO Refactor this code to use a reducer
   const goToPreviousMeme = (): void => {
@@ -31,6 +34,10 @@ function MemePage({ data }: MemePageProps) {
     );
   };
 
+  useEffect(() => {
+    setTemplateId(memeData.memes[memeIndex].id);
+  }, [memeIndex, memeData]);
+
   return (
     <>
       <MemeGeneratorHeader />
@@ -38,7 +45,6 @@ function MemePage({ data }: MemePageProps) {
         goToPreviousMeme={goToPreviousMeme}
         goToNextMeme={goToNextMeme}
         disabledGenerate={false}
-        //generateImage={() => usePostMeme(templateId)}
       />
       <ShowcaseMemeImage
         imageLink={memeData.memes[memeIndex].url}

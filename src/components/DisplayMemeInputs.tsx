@@ -8,6 +8,8 @@ interface DisplayMemeInputsProps {
 //this will take a boolean value and return the inputs with the data
 
 //TODO: This components needs a form control
+
+//TODO UseEffect to  set the atom, check if there is any data in the inputfields, if there is, enable the generate button
 function DisplayMemeInputs({
   numberOfBoxesToCaption,
 }: DisplayMemeInputsProps): JSX.Element {
