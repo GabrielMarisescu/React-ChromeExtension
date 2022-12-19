@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import LoadingSpinner from '../../components/DumbComponents/LoadingSpinner';
-import { useGetMemes } from '../hooks/useGetMeme';
 
-function withMemeData(WrappedComponent: any): React.FC {
-  const { loading, error, data } = useGetMemes();
-
+function withMemeData(
+  WrappedComponent: any,
+  loading: boolean,
+  error: null,
+  data: any
+): React.FC {
   return function HOC(props: any): JSX.Element {
     const isDataLoaded = data && !error && !loading;
 
