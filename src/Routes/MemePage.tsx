@@ -8,7 +8,7 @@ import withMemeData from '../utils/HOCs/withMemeData';
 import DisplayMemeInputs from '../components/DisplayMemeInputs';
 import { useGetMemes } from '../utils/hooks/useGetMeme';
 import { useAtom } from 'jotai';
-import { template_ID } from '../MainStore';
+import { isGenerateButtonDisaled, template_ID } from '../MainStore';
 
 function MemePageWithData() {
   const { data, loading, error } = useGetMemes();
@@ -19,10 +19,11 @@ function MemePageWithData() {
 function MemePage({ data }: MemePageProps) {
   const [memeIndex, setMemeIndex] = React.useState<number>(0);
   const [_, setTemplateId] = useAtom(template_ID);
+  const [IsButtonDisabled]  = useAtom(isGenerateButtonDisaled)
   const memeData = data.data;
   const memesLength = memeData.memes.length;
 
-  //TODO Refactor this code to use a reducer
+  //TODO Refactor this code to use a hook approach
   const goToPreviousMeme = (): void => {
     setMemeIndex((prevData) =>
       prevData - 1 < 0 ? memesLength! - 1 : prevData - 1
@@ -44,7 +45,7 @@ function MemePage({ data }: MemePageProps) {
       <ManageMemeButtons
         goToPreviousMeme={goToPreviousMeme}
         goToNextMeme={goToNextMeme}
-        disabledGenerate={false}
+        disableGenerateButton={!IsButtonDisabled}
       />
       <ShowcaseMemeImage
         imageLink={memeData.memes[memeIndex].url}

@@ -1,8 +1,10 @@
-import React from 'react';
+import { useAtom } from 'jotai';
+import React, { useEffect } from 'react';
+import { isGenerateButtonDisaled } from '../MainStore';
 import InputText from './DumbComponents/InputText';
 
 interface DisplayMemeInputsProps {
-  numberOfBoxesToCaption?: number;
+  numberOfBoxesToCaption: number;
 }
 
 //this will take a boolean value and return the inputs with the data
@@ -13,12 +15,19 @@ interface DisplayMemeInputsProps {
 function DisplayMemeInputs({
   numberOfBoxesToCaption,
 }: DisplayMemeInputsProps): JSX.Element {
+const [data,setIsButtonDisabled] = useAtom(isGenerateButtonDisaled)
   const arrayOfBoxes = Array(numberOfBoxesToCaption)
     .fill(0)
     .map((_, i) => i * i);
 
   //logic to display the inputs
 
+
+
+  useEffect(() => {
+    setIsButtonDisabled(false)
+
+  })
   return (
     <>
       <form className='flex flex-col'>

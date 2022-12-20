@@ -14,6 +14,7 @@ export const usePostMeme = (templateId: string) => {
   formData.append('username', username);
   formData.append('password', password);
   formData.append('template_id', templateId);
+  //TODO ADD ATOM FOR THE BOXES Inputs
   test.forEach((c: any, index: number) =>
     formData.append(`boxes[${index}][text]`, c)
   );
