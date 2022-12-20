@@ -1,8 +1,8 @@
-import React  from 'react';
+import React from 'react';
 import LoadingSpinner from '../../components/DumbComponents/LoadingSpinner';
 
 function withMemeData(
-  WrappedComponent: React.ComponentType<any>,
+  WrappedComponent: any,
   loading: boolean,
   error: null,
   data: any
