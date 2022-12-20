@@ -19,25 +19,24 @@ function MemePageWithData() {
 function MemePage({ data }: MemePageProps) {
   const [memeIndex, setMemeIndex] = React.useState<number>(0);
   const [_, setTemplateId] = useAtom(template_ID);
-  const [IsButtonDisabled]  = useAtom(isGenerateButtonDisaled)
+  const [IsButtonDisabled] = useAtom(isGenerateButtonDisaled);
   const memeData = data.data;
   const memesLength = memeData.memes.length;
 
-  //TODO Refactor this code to use a hook approach
   const goToPreviousMeme = (): void => {
-    setMemeIndex((prevData) =>
-      prevData - 1 < 0 ? memesLength! - 1 : prevData - 1
-    );
+    setMemeIndex((memeIndex - 1 + memesLength) % memesLength);
   };
   const goToNextMeme = (): void => {
-    setMemeIndex((prevData) =>
-      prevData + 1 > memesLength! - 1 ? 0 : prevData + 1
-    );
+    setMemeIndex((memeIndex + 1) % memesLength);
   };
 
   useEffect(() => {
     setTemplateId(memeData.memes[memeIndex].id);
   }, [memeIndex, memeData]);
+
+  useEffect(() => {
+    setMemeIndex(Math.floor(Math.random() * data.data.memes.length));
+  }, []);
 
   return (
     <>
@@ -45,7 +44,7 @@ function MemePage({ data }: MemePageProps) {
       <ManageMemeButtons
         goToPreviousMeme={goToPreviousMeme}
         goToNextMeme={goToNextMeme}
-        disableGenerateButton={!IsButtonDisabled}
+        disableGenerateButton={IsButtonDisabled}
       />
       <ShowcaseMemeImage
         imageLink={memeData.memes[memeIndex].url}

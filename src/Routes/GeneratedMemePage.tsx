@@ -1,5 +1,4 @@
 import { useAtom } from 'jotai';
-import React from 'react';
 import ShowcaseMemeImage from '../components/DumbComponents/ShowcaseMemeImage';
 import { template_ID } from '../MainStore';
 import withMemeData from '../utils/HOCs/withMemeData';
@@ -22,8 +21,8 @@ function GeneratedMemePageWithData() {
 function GeneratedMemePage({ data }: { data: string }) {
   return (
     //TODO : Copy to clipboard, view in browser, download image
+    //TODO : Maybe make a big version of showcasememeimage
     <>
-      <div className=' text-gray-50'>GeneratedMemePage </div>
       <ShowcaseMemeImage imageLink={data} />
     </>
   );
