@@ -1,5 +1,7 @@
-import React from "react"
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { GENERATE } from '../constants';
+import Button from './DumbComponents/Button';
 
 interface ManageMemeButtonsProps {
   goToNextMeme: () => void;
@@ -12,27 +14,10 @@ function ManageMemeButtons({
   goToPreviousMeme,
   disableGenerateButton,
 }: ManageMemeButtonsProps) {
-
-  const disabledGenerateButton = () => {
-    return  <button disabled className="disabled:text-gray-600 disabled:cursor-not-allowed w-full bg-transparent hover:bg-blue-500  font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded disabled:opacity-50" >Generate</button>
-  
-  }
-  const generateButton = () => {
-    return   <button  className="disabled:text-gray-600 disabled:cursor-not-allowed w-full bg-transparent hover:bg-blue-500  font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded disabled:opacity-50" >Generate</button>
-  }
-
-
-
-
-
-
   return (
     <section className=' flex flex-col justify-center items-center'>
-      <Link
-        to={'/generated'}
-       className=" w-1/2 mt-5 "
-      >
-        {disableGenerateButton ? disabledGenerateButton() : generateButton()}
+      <Link to={'/generated'} className=' w-1/2 mt-5 '>
+        <Button title={GENERATE} disabled={!disableGenerateButton} />
       </Link>
 
       <section className=' w-4/5 flex justify-between'>

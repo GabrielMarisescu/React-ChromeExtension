@@ -23,7 +23,9 @@ function GeneratedMemePage({ data }: { data: string }) {
     //TODO : Copy to clipboard, view in browser, download image
     //TODO : Maybe make a big version of showcasememeimage
     <>
-      <ShowcaseMemeImage imageLink={data} />
+      <section className=' m-auto w-1/2 '>
+        <ShowcaseMemeImage imageLink={data} />
+      </section>
     </>
   );
 }

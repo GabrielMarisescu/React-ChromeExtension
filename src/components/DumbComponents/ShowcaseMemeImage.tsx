@@ -1,4 +1,4 @@
-import { ShowCaseMemeImageProps } from '../../types/apiCallsTypes';
+import { ShowCaseMemeImageProps } from '../ComponentTypes';
 
 function ShowcaseMemeImage({ imageLink, altValue }: ShowCaseMemeImageProps) {
   return (

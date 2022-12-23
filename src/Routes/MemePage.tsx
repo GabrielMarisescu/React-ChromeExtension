@@ -9,6 +9,7 @@ import DisplayMemeInputs from '../components/DisplayMemeInputs';
 import { useGetMemes } from '../utils/hooks/useGetMeme';
 import { useAtom } from 'jotai';
 import { isGenerateButtonDisaled, template_ID } from '../MainStore';
+import { MEME_GENERATOR } from '../constants';
 
 function MemePageWithData() {
   const { data, loading, error } = useGetMemes();
@@ -40,7 +41,7 @@ function MemePage({ data }: MemePageProps) {
 
   return (
     <>
-      <MemeGeneratorHeader />
+      <MemeGeneratorHeader title={MEME_GENERATOR} />
       <ManageMemeButtons
         goToPreviousMeme={goToPreviousMeme}
         goToNextMeme={goToNextMeme}

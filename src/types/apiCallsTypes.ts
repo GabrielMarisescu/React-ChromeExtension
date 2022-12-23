@@ -18,11 +18,6 @@ export interface GetMemesResponse {
   data: Data;
 }
 
-export interface ShowCaseMemeImageProps {
-  imageLink: string;
-  altValue?: string;
-}
-
 export interface WithMemeDataProps {
   WrappedComponent: React.FC;
   loading: boolean;
