@@ -1,6 +1,7 @@
 export interface ButtonProps {
   title: any;
-  disabled: boolean;
+  disabled?: boolean;
+  onClick?: () => void;
 }
 
 export interface ShowCaseMemeImageProps {

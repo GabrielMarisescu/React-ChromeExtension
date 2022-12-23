@@ -1,10 +1,11 @@
 import React from 'react';
 import { ButtonProps } from '../ComponentTypes';
 
-function Button({ title, disabled }: ButtonProps) {
+function Button({ title, disabled, onClick }: ButtonProps) {
   if (disabled) {
     return (
       <button
+        onClick={onClick}
         disabled
         className='disabled:text-gray-600 disabled:cursor-not-allowed w-full bg-transparent hover:bg-blue-500  font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded disabled:opacity-50'
       >
@@ -13,7 +14,10 @@ function Button({ title, disabled }: ButtonProps) {
     );
   } else {
     return (
-      <button className='disabled:text-gray-600 disabled:cursor-not-allowed w-full bg-transparent hover:bg-blue-500  font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded disabled:opacity-50'>
+      <button
+        onClick={onClick}
+        className='disabled:text-gray-600 disabled:cursor-not-allowed w-full bg-transparent hover:bg-blue-500  font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded disabled:opacity-50'
+      >
         {title}
       </button>
     );

@@ -17,7 +17,7 @@ function ManageMemeButtons({
   return (
     <section className=' flex flex-col justify-center items-center'>
       <Link to={'/generated'} className=' w-1/2 mt-5 '>
-        <Button title={GENERATE} disabled={!disableGenerateButton} />
+        <Button title={GENERATE} disabled={disableGenerateButton} />
       </Link>
 
       <section className=' w-4/5 flex justify-between'>
