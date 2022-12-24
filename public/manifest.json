@@ -1,8 +1,9 @@
 {
-  "name": "Chrome React SEO Extension",
-  "description": "The power of React and TypeScript for building interactive Chrome extensions",
+  "name": "Chrome React Meme Generator  Extension",
+  "description": "Amazing Meme Generator Extension",
   "version": "1.0",
   "manifest_version": 3,
+  "permissions": ["downloads", "<all_urls>"],
   "action": {
     "default_popup": "index.html",
     "default_title": "Open the popup"

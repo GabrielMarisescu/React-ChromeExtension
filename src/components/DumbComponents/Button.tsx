@@ -1,7 +1,14 @@
 import React from 'react';
 import { ButtonProps } from '../ComponentTypes';
 
-function Button({ title, disabled, onClick }: ButtonProps) {
+function Button({
+  title,
+  disabled,
+  onClick,
+}: React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+>) {
   if (disabled) {
     return (
       <button
