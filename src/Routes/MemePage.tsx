@@ -41,15 +41,15 @@ function MemePage({ data }: MemePageProps) {
 
   return (
     <>
-      <MemeGeneratorHeader title={MEME_GENERATOR} />
+      <MemeGeneratorHeader projectName={MEME_GENERATOR} />
       <ManageMemeButtons
         goToPreviousMeme={goToPreviousMeme}
         goToNextMeme={goToNextMeme}
         disableGenerateButton={IsButtonDisabled}
       />
       <ShowcaseMemeImage
-        imageLink={memeData.memes[memeIndex].url}
-        altValue={memeData.memes[memeIndex].id}
+        src={memeData.memes[memeIndex].url}
+        alt={memeData.memes[memeIndex].id}
       />
       <DisplayMemeInputs
         numberOfBoxesToCaption={memeData.memes[memeIndex].box_count}

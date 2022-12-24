@@ -9,6 +9,7 @@ import { usePostMeme } from '../utils/hooks/usePostMeme';
 function GeneratedMemePageWithData() {
   const [data, _] = useAtom(template_ID);
   const { captionedURL, loading, error } = usePostMeme(data);
+
   const Component = withMemeData(
     GeneratedMemePage,
     loading,
@@ -17,25 +18,29 @@ function GeneratedMemePageWithData() {
   );
   return <Component />;
 }
-const downloadMeme = (): void => {};
 
-const copyToClipboard = (captionedURL: string): void => {
-  navigator.clipboard.writeText(captionedURL);
+const copyToClipboard = (data: string): void => {
+  navigator.clipboard.writeText(data);
   //TODO If successful trigger pop up that it's  ok, for 2 seconds
+};
+
+const downloadData = (data: string) => {
+  const DownloadOptions = { url: data };
+  console.log(chrome);
 };
 
 function GeneratedMemePage({ data }: { data: string }) {
   return (
     //TODO : Maybe make a big version of showcasememeimage
     <>
-      <section className=' m-auto w-1/2 flex '>
-        <Button title={DOWNLOAD} onClick={downloadMeme} />
+      <section className=' m-auto w-1/2'>
+        <Button title={DOWNLOAD} onClick={() => downloadData(data)} />
         <Button title={COPYTOCLIPBOARD} onClick={() => copyToClipboard(data)} />
         <a href={data} type='image' target={'_blank'}>
           <Button title={VIEWINBROWSER} />
         </a>
         ;
-        <ShowcaseMemeImage imageLink={data} />
+        <ShowcaseMemeImage src={data} />
       </section>
     </>
   );

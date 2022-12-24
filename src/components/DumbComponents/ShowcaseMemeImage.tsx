@@ -1,14 +1,12 @@
 function ShowcaseMemeImage({
-  src,
-  alt,
+  ...props
 }: React.DetailedHTMLProps<
   React.ImgHTMLAttributes<HTMLImageElement>,
   HTMLImageElement
 >) {
   return (
     <img
-      src={src}
-      alt={alt}
+      {...props}
       className={
         ' flex justify-center h-52 w-52 ml-auto mr-auto mt-5 object-contain'
       }
