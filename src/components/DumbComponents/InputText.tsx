@@ -1,6 +1,9 @@
 import React from 'react';
 
-function InputText() {
+function InputText({}: React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>) {
   return (
     <>
       <input
