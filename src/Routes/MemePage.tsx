@@ -41,7 +41,7 @@ function MemePage({ data }: MemePageProps) {
 
   return (
     <>
-      <MemeGeneratorHeader projectName={MEME_GENERATOR} />
+      <MemeGeneratorHeader title={MEME_GENERATOR} />
       <ManageMemeButtons
         goToPreviousMeme={goToPreviousMeme}
         goToNextMeme={goToNextMeme}
