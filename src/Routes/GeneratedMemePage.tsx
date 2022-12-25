@@ -11,6 +11,12 @@ import {
 import { template_ID } from '../MainStore';
 import withMemeData from '../utils/HOCs/withMemeData';
 import { usePostMeme } from '../utils/hooks/usePostMeme';
+import useUniqueFilename from '../utils/hooks/useUniqueFilename';
+
+interface DownloadMemeProps {
+  data: string;
+  fileName: string;
+}
 
 function GeneratedMemePageWithData() {
   const [data, _] = useAtom(template_ID);
@@ -30,14 +36,16 @@ const copyToClipboard = (data: string): void => {
   //TODO If successful trigger pop up that it's  ok, for 2 seconds
 };
 
-const downloadData = (data: string) => {
-  const DownloadOptions = { url: data };
-  console.log(chrome);
+const downloadMeme = ({ data, fileName }: DownloadMemeProps) => {
+  chrome.downloads.download({
+    url: data,
+    filename: fileName,
+  });
 };
 
 function GeneratedMemePage({ data }: { data: string }) {
+  const fileName = useUniqueFilename();
   return (
-    //TODO : Maybe make a big version of showcasememeimage
     <>
       <MemeGeneratorHeader title={GENERATEDMEME} />
       <div className=' flex items-center'>
@@ -45,7 +53,7 @@ function GeneratedMemePage({ data }: { data: string }) {
           <section className=' mt-5 flex justify-between mb-4'>
             <Button
               title={DOWNLOAD}
-              onClick={() => downloadData(data)}
+              onClick={() => downloadMeme({ data, fileName })}
               className='mx-2'
             />
             <Button
