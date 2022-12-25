@@ -2,7 +2,7 @@ import React from 'react';
 import LoadingSpinner from '../../components/DumbComponents/LoadingSpinner';
 
 function withMemeData(
-  WrappedComponent: any,
+  WrappedComponent: React.ComponentType<any>,
   loading: boolean,
   error: null,
   data: any
