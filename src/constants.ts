@@ -5,3 +5,4 @@ export const VIEWINBROWSER = 'View in Browser';
 export const COPYTOCLIPBOARD = 'Copy To Clipboard';
 export const PREVIOUS = 'Previous';
 export const NEXT = 'Next';
+export const GENERATEDMEME = 'Generated Meme';

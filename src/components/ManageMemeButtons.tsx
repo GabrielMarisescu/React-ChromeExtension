@@ -21,8 +21,8 @@ function ManageMemeButtons({
       </Link>
 
       <section className=' w-4/5 flex'>
-        <Button title={PREVIOUS} onClick={goToPreviousMeme} />
-        <Button title={NEXT} onClick={goToNextMeme} />
+        <Button title={PREVIOUS} onClick={goToPreviousMeme} className='mx-1' />
+        <Button title={NEXT} onClick={goToNextMeme} className='mx-1' />
       </section>
     </section>
   );
