@@ -8,7 +8,7 @@ function ShowcaseMemeImage({
     <img
       {...props}
       className={
-        ' flex justify-center h-52 w-52 ml-auto mr-auto mt-5 object-contain'
+        ' flex justify-center h-64 w-64 ml-auto mr-auto mt-5 object-contain mb-8'
       }
     />
   );
