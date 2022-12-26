@@ -10,13 +10,9 @@ import {
 } from '../constants';
 import { template_ID } from '../MainStore';
 import withMemeData from '../utils/HOCs/withMemeData';
+import useDownloadMeme from '../utils/hooks/useDownloadMeme';
 import { usePostMeme } from '../utils/hooks/usePostMeme';
 import useUniqueFilename from '../utils/hooks/useUniqueFilename';
-
-interface DownloadMemeProps {
-  data: string;
-  fileName: string;
-}
 
 function GeneratedMemePageWithData() {
   const [data, _] = useAtom(template_ID);
@@ -36,15 +32,9 @@ const copyToClipboard = (data: string): void => {
   //TODO If successful trigger pop up that it's  ok, for 2 seconds
 };
 
-const downloadMeme = ({ data, fileName }: DownloadMemeProps) => {
-  chrome.downloads.download({
-    url: data,
-    filename: fileName,
-  });
-};
-
 function GeneratedMemePage({ data }: { data: string }) {
   const fileName = useUniqueFilename();
+  const downloadMeme = useDownloadMeme();
   return (
     <>
       <MemeGeneratorHeader title={GENERATEDMEME} />
