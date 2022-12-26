@@ -1,21 +1,22 @@
+import { useAtom } from 'jotai';
 import React from 'react';
+import { inputBoxesValues } from '../../MainStore';
 
 export const usePostMeme = (templateId: string) => {
   const [captionedURL, setCaptionedURL] = React.useState<string>('');
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
+  const [inputBoxes, _] = useAtom(inputBoxesValues);
 
   const username: string = import.meta.env.VITE_ACCOUNT_USERNAME;
   const password: string = import.meta.env.VITE_ACCOUNT_PASSWORD;
-  const test = ['getsts', 'teststs'];
 
   //Create a form data object
   const formData = new FormData();
   formData.append('username', username);
   formData.append('password', password);
   formData.append('template_id', templateId);
-  //TODO ADD ATOM FOR THE BOXES Inputs
-  test.forEach((c: any, index: number) =>
+  inputBoxes.forEach((c: any, index: number) =>
     formData.append(`boxes[${index}][text]`, c)
   );
 
