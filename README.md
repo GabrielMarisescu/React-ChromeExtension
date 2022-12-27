@@ -6,6 +6,9 @@ The Meme Generator allows you to create Images with captions.
 - Feel free to make pull requests or Issues.
 
 ## Preview
+<img width="395" alt="Screenshot 2022-12-27 at 18 20 22" src="https://user-images.githubusercontent.com/43650393/209700195-b30d8d60-bf66-4666-a079-97f2a986f301.png">
+<img width="394" alt="Screenshot 2022-12-27 at 18 21 54" src="https://user-images.githubusercontent.com/43650393/209700344-09d05a1e-2339-41bb-9c3c-26476a87e92a.png">
+
 
 ## Contributing
 
