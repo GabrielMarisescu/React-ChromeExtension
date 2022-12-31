@@ -1,5 +1,5 @@
 import { useAtom } from 'jotai';
-import React from 'react';
+import React, { useState } from 'react';
 import { inputBoxesValues, isGenerateButtonDisaled } from '../MainStore';
 import InputText from './DumbComponents/InputText';
 
@@ -10,12 +10,14 @@ interface DisplayMemeInputsProps {
 function DisplayMemeInputs({
   numberOfBoxesToCaption,
 }: DisplayMemeInputsProps): JSX.Element {
-  const [_, setIsButtonDisabled] = useAtom(isGenerateButtonDisaled);
+  const [_, setInputValue] = useState<string>('');
+  const [__, setIsButtonDisabled] = useAtom(isGenerateButtonDisaled);
   const [inputBoxes, setInputBoxes] = useAtom(inputBoxesValues);
   const arrayOfBoxes: string[] = Array(numberOfBoxesToCaption).fill('');
 
   const updateCaption = (e: React.ChangeEvent<HTMLInputElement>, i: number) => {
     setInputBoxes((prevInputBoxes) => {
+      setInputValue(e.target.value);
       const newInputBoxes = [...prevInputBoxes];
       newInputBoxes[i] = e.target.value;
       return newInputBoxes;
@@ -23,11 +25,13 @@ function DisplayMemeInputs({
   };
 
   React.useEffect(() => {
-    !inputBoxes.length ? setInputBoxes(arrayOfBoxes) : null;
-
-    const isAnyInputFilled = inputBoxes.some((input) => input !== '');
-    setIsButtonDisabled(!isAnyInputFilled);
-  }, [inputBoxes]);
+    arrayOfBoxes.length !== inputBoxes.length
+      ? setInputBoxes(arrayOfBoxes)
+      : null;
+    console.log(inputBoxes, arrayOfBoxes);
+    const isSomeInputFilled = inputBoxes.some((input) => input === '');
+    setIsButtonDisabled(isSomeInputFilled);
+  }, [inputBoxes, numberOfBoxesToCaption]);
 
   return (
     <>
