@@ -9,7 +9,9 @@ import { GENERATE, NAVIGATEGENERATED } from '../constants';
 interface DisplayMemeInputsProps {
   numberOfBoxesToCaption: number;
 }
-
+interface useFormDataAndNavigateType {
+  [key: string]: string;
+}
 function DisplayMemeInputs({
   numberOfBoxesToCaption,
 }: DisplayMemeInputsProps): JSX.Element {
@@ -22,11 +24,10 @@ function DisplayMemeInputs({
   const arrayOfBoxes: string[] = Array(numberOfBoxesToCaption).fill('');
   const navigate = useNavigate();
 
-  const useFormDataAndNavigate = (data: { [key: string]: string }) => {
+  const useFormDataAndNavigate = (data: useFormDataAndNavigateType) => {
     //refactor as hook maybe
     const inputBoxesArray = Object.values(data);
     setInputBoxes(inputBoxesArray);
-    //const as string here
     navigate(NAVIGATEGENERATED);
   };
 
@@ -38,7 +39,6 @@ function DisplayMemeInputs({
 
   const onSubmit = (data: any) => {
     useFormDataAndNavigate(data);
-    //zod validation
   };
 
   return (
@@ -46,7 +46,7 @@ function DisplayMemeInputs({
       <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col'>
         {inputBoxes.map((_, i) => (
           <input
-            {...register(`memeInput${i}`)}
+            {...register(`memeInput${i}`, { required: true, minLength: 2 })}
             type='text'
             autoComplete='off'
             placeholder='Meme Caption'
