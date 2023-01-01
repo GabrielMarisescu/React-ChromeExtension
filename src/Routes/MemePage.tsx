@@ -8,7 +8,7 @@ import withMemeData from '../utils/HOCs/withMemeData';
 import DisplayMemeInputs from '../components/DisplayMemeInputs';
 import { useGetMemes } from '../utils/hooks/useGetMeme';
 import { useAtom } from 'jotai';
-import { isGenerateButtonDisaled, template_ID } from '../MainStore';
+import { template_ID } from '../MainStore';
 import { MEME_GENERATOR } from '../constants';
 
 function MemePageWithData() {
@@ -20,7 +20,6 @@ function MemePageWithData() {
 function MemePage({ data }: MemePageProps) {
   const [memeIndex, setMemeIndex] = React.useState<number>(0);
   const [_, setTemplateId] = useAtom(template_ID);
-  const [IsButtonDisabled] = useAtom(isGenerateButtonDisaled);
   const memeData = data.data;
   const memesLength = memeData.memes.length;
 
@@ -45,7 +44,6 @@ function MemePage({ data }: MemePageProps) {
       <ManageMemeButtons
         goToPreviousMeme={goToPreviousMeme}
         goToNextMeme={goToNextMeme}
-        disableGenerateButton={IsButtonDisabled}
       />
       <ShowcaseMemeImage
         src={memeData.memes[memeIndex].url}
