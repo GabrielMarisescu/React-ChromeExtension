@@ -1,7 +1,7 @@
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React, { useEffect } from 'react';
-import ShowcaseMemeImage from '../components/DumbComponents/ShowcaseMemeImage';
-import MemeGeneratorHeader from '../components/DumbComponents/MemeGeneratorHeader';
+import ShowcaseMemeImage from '../components/DumbComponents/ShowcaseMemeImage/ShowcaseMemeImage';
+import MemeGeneratorHeader from '../components/DumbComponents/MemeGeneratorHeader/MemeGeneratorHeader';
 import ManageMemeButtons from '../components/ManageMemeButtons';
 import { MemePageProps } from '../types/apiCallsTypes';
 import withMemeData from '../utils/HOCs/withMemeData';

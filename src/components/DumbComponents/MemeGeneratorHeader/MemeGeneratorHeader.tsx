@@ -1,3 +1,5 @@
+import React from 'react';
+
 function MemeGeneratorHeader({
   ...props
 }: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>) {

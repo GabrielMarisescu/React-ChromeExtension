@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 import MemePage from './Routes/MemePage';
 import './index.css';
-import LoadingSpinner from './components/DumbComponents/LoadingSpinner';
+import LoadingSpinner from './components/DumbComponents/LoadingSpinner/LoadingSpinner';
 
 const GeneratedMemePage = React.lazy(
   () => import('./Routes/GeneratedMemePage')

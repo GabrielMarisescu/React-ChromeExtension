@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai';
 import Button from '../components/DumbComponents/Button/Button';
-import MemeGeneratorHeader from '../components/DumbComponents/MemeGeneratorHeader';
-import ShowcaseMemeImage from '../components/DumbComponents/ShowcaseMemeImage';
+import MemeGeneratorHeader from '../components/DumbComponents/MemeGeneratorHeader/MemeGeneratorHeader';
+import ShowcaseMemeImage from '../components/DumbComponents/ShowcaseMemeImage/ShowcaseMemeImage';
 import {
   COPYTOCLIPBOARD,
   DOWNLOAD,

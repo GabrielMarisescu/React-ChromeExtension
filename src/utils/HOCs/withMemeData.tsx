@@ -1,5 +1,5 @@
 import React from 'react';
-import LoadingSpinner from '../../components/DumbComponents/LoadingSpinner';
+import LoadingSpinner from '../../components/DumbComponents/LoadingSpinner/LoadingSpinner';
 
 function withMemeData(
   WrappedComponent: React.ComponentType<any>,
