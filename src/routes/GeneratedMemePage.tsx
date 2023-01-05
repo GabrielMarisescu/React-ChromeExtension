@@ -10,9 +10,9 @@ import {
 } from '../Constants';
 import { template_ID } from '../MainStore';
 import withMemeData from '../utils/HOCs/withMemeData';
-import useDownloadMeme from '../utils/hooks/useDownloadMeme';
-import { usePostMeme } from '../utils/hooks/usePostMeme';
-import useUniqueFilename from '../utils/hooks/useUniqueFilename';
+import useDownloadMeme from '../utils/Hooks2/useDownloadMeme';
+import { usePostMeme } from '../utils/Hooks2/usePostMeme';
+import useUniqueFilename from '../utils/Hooks2/useUniqueFilename';
 
 function GeneratedMemePageWithData() {
   const [data, _] = useAtom(template_ID);

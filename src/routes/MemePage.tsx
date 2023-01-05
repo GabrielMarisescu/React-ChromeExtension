@@ -6,7 +6,7 @@ import ManageMemeButtons from '../components/ManageMemeButtons';
 import { MemePageProps } from '../types/apiCallsTypes';
 import withMemeData from '../utils/HOCs/withMemeData';
 import DisplayMemeInputs from '../components/DisplayMemeInputs';
-import { useGetMemes } from '../utils/hooks/useGetMeme';
+import { useGetMemes } from '../utils/Hooks2/useGetMeme';
 import { useAtom } from 'jotai';
 import { template_ID } from '../MainStore';
 import { MEME_GENERATOR } from '../Constants';
