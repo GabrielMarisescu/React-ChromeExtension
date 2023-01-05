@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { inputBoxesValues } from '../MainStore';
 import { useAtom } from 'jotai';
 import { useNavigate } from 'react-router-dom';
-import Button from './DumbComponents/Button';
+import Button from './DumbComponents/Button/Button';
 import { GENERATE, NAVIGATEGENERATED } from '../constants';
 import { validationSchema } from '../InputValidationSchemas';
 
@@ -26,7 +26,6 @@ function DisplayMemeInputs({
   const navigate = useNavigate();
 
   const useFormDataAndNavigate = (data: useFormDataAndNavigateInterface) => {
-    //refactor as hook maybe
     const inputBoxesArray = Object.values(data);
     setInputBoxes(inputBoxesArray);
     navigate(NAVIGATEGENERATED);

@@ -26,7 +26,8 @@
     "dev": "vite",
     "build": "INLINE_RUNTIME_CHUNK=false tsc && vite build",
     "preview": "vite preview",
-    "watch": "npm-watch"
+    "watch": "npm-watch",
+    "test": "jest"
   },
   "dependencies": {
     "classnames": "^2.3.2",
@@ -38,8 +39,10 @@
     "react-router-dom": "^6.5.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/chrome": "^0.0.203",
+    "@types/jest": "^29.2.5",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^2.2.0",

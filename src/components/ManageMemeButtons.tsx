@@ -1,6 +1,6 @@
 import React from 'react';
 import { NEXT, PREVIOUS } from '../constants';
-import Button from './DumbComponents/Button';
+import Button from './DumbComponents/Button/Button';
 
 interface ManageMemeButtonsProps {
   goToNextMeme: () => void;
