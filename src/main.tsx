@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
-import MemePage from './Routes/MemePage';
+import MemePage from './routes/MemePage';
 import './index.css';
 import LoadingSpinner from './components/DumbComponents/LoadingSpinner/LoadingSpinner';
 
 const GeneratedMemePage = React.lazy(
-  () => import('./Routes/GeneratedMemePage')
+  () => import('./routes/GeneratedMemePage')
 );
 
 const ErrorPage = React.lazy(
