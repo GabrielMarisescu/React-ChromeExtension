@@ -1,5 +1,5 @@
 import React from 'react';
-import { NEXT, PREVIOUS } from '../Constants2';
+import { NEXT, PREVIOUS } from '../Constants';
 import Button from './DumbComponents/Button/Button';
 
 interface ManageMemeButtonsProps {

@@ -4,7 +4,7 @@ import { inputBoxesValues } from '../MainStore';
 import { useAtom } from 'jotai';
 import { useNavigate } from 'react-router-dom';
 import Button from './DumbComponents/Button/Button';
-import { GENERATE, NAVIGATEGENERATED } from '../Constants2';
+import { GENERATE, NAVIGATEGENERATED } from '../Constants';
 import { validationSchema } from '../InputValidationSchemas';
 
 interface DisplayMemeInputsProps {

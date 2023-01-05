@@ -9,7 +9,7 @@ import DisplayMemeInputs from '../components/DisplayMemeInputs';
 import { useGetMemes } from '../utils/hooks/useGetMeme';
 import { useAtom } from 'jotai';
 import { template_ID } from '../MainStore';
-import { MEME_GENERATOR } from '../Constants2';
+import { MEME_GENERATOR } from '../Constants';
 
 function MemePageWithData() {
   const { data, loading, error } = useGetMemes();

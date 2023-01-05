@@ -7,7 +7,7 @@ import {
   DOWNLOAD,
   GENERATEDMEME,
   VIEWINBROWSER,
-} from '../Constants2';
+} from '../Constants';
 import { template_ID } from '../MainStore';
 import withMemeData from '../utils/HOCs/withMemeData';
 import useDownloadMeme from '../utils/hooks/useDownloadMeme';
