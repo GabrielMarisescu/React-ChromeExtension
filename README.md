@@ -31,9 +31,11 @@ The steps below will allow you to run this website locally
 6. If you'd like to develop, you will have to run `npm run watch`
 
 ## Preview
+<img width="397" alt="Screenshot 2023-01-05 at 16 52 32" src="https://user-images.githubusercontent.com/43650393/210823251-58b01fea-e6b2-4dd3-a4e6-46ab6eacce83.png">
 
-<img width="395" alt="Screenshot 2022-12-27 at 18 20 22" src="https://user-images.githubusercontent.com/43650393/209700195-b30d8d60-bf66-4666-a079-97f2a986f301.png">
-<img width="394" alt="Screenshot 2022-12-27 at 18 21 54" src="https://user-images.githubusercontent.com/43650393/209700344-09d05a1e-2339-41bb-9c3c-26476a87e92a.png">
+<img width="399" alt="Screenshot 2023-01-05 at 16 53 08" src="https://user-images.githubusercontent.com/43650393/210823372-d5a7aea8-44f0-4135-98c7-c77bf87aa739.png">
+
+
 
 ## Contributing
 
