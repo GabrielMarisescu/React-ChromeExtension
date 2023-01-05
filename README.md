@@ -2,7 +2,14 @@
 
 The Meme Generator allows you to create Images with captions.
 
-- Actively maintained by developers.
+- Has been developed with React and TypeScript.
+- Vite has been used as the bundler.
+- TailwindCSS is used extensively in the App.
+- It utilizes the Chrome Api to download the Meme Image.
+- Jotai is the state management tool of choice.
+- React-Hook-Form has been utilized for managing forms.
+- In terms of architecture, there is the Smart/Dumb component pattern, Hooks and HOCs.
+- Dumb components have been tested with Jest & React Testing Library APIs.
 - Feel free to make pull requests or Issues.
 
 ## Installation
