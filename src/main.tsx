@@ -7,10 +7,10 @@ import LoadingSpinner from './components/DumbComponents/LoadingSpinner';
 
 const GeneratedMemePage = React.lazy(
   () => import('./Routes/GeneratedMemePage')
-);    
+);
 
 const ErrorPage = React.lazy(
-  () => import('./components/DumbComponents/ErrorPage')
+  () => import('./components/DumbComponents/ErrorPage/ErrorPage')
 );
 
 const router = createHashRouter([
